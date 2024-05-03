@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Cart</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f8f8;
+        }
+    </style>
+</head>
+<body class="cart-page" style="background-image: url('IMAGES/BACKGROUND_CART.jpg'); background-size: cover; background-position: center;">
+
+    <div class="navbar">
+		<div class="logo">
+		</div>
+		<nav>
+			<ul>
+				<li><a href="main.html">Home</a></li>
+				<li><a href="women_shoes.html" id="women-shoes-link">Women's Shoes</a></li>
+				<li><a href="men_shoes.html" id="men-shoes-link">Men's Shoes</a></li>
+				<li><a href="cart.html">Your Cart</a></li>
+			</ul>
+		</nav>
+	</div>
+
+    <div class="cart-panel">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <p class="empty-cart-message">Your cart is empty.</p>
+        </div>
+        <div class="checkout-section">
+            <p>Total Price: <span id="total-price" class="total-price">$0.00</span></p>
+            <button class="checkout-button" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        var cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        var cartItemsContainer = document.getElementById("cart-items");
+        updateCartDisplay();
+
+        function updateCartDisplay() {
+            cartItemsContainer.innerHTML = "";
+            var totalPrice = 0;
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "<p class='empty-cart-message'>Your cart is empty.</p>";
+            } else {
+                cart.forEach(function(item, index) {
+                    var itemElement = document.createElement("div");
+                    itemElement.classList.add("cart-item");
+
+                    var itemInfo = document.createElement("div");
+                    itemInfo.classList.add("cart-item-info");
+                    itemInfo.textContent = item.title + " - " + item.price;
+                    itemElement.appendChild(itemInfo);
+
+                    var removeButton = document.createElement("button");
+                    removeButton.classList.add("cart-item-remove");
+                    removeButton.textContent = "Remove";
+                    removeButton.addEventListener("click", function() {
+                        cart.splice(index, 1);
+
+                        localStorage.setItem("cart", JSON.stringify(cart));
+
+                        updateCartDisplay();
+                    });
+                    itemElement.appendChild(removeButton);
+
+                    cartItemsContainer.appendChild(itemElement);
+
+
+                    totalPrice += parseFloat(item.price.replace("$", ""));
+                });
+            }
+            document.getElementById("total-price").textContent = "$" + totalPrice.toFixed(2);
+        }
+
+        function checkout() {
+
+            alert("Checking out!, thank you for shopping!");
+        }
+    </script>
+</body>
+</html>

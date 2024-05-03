@@ -1,0 +1,221 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* FONTS */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  
+  /* EFFECTS SA NAVBAR DONT EDIT */
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+  }
+  
+  li {
+    border-radius: 10px;
+    border: 2px solid gray;
+    padding: 10px;
+    background-color: #edeae5;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+
+  .navbar ul li {
+    display: inline-block;
+
+}
+  
+.navbar ul li a {
+    margin: 0 20px;
+    padding: 10px; 
+    display: inline-block; 
+    color: rgb(12, 12, 12);
+    text-decoration: none;
+    text-shadow: 1px 1px 3px rgba(117, 117, 117, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #dcd9d4;
+    border-radius: 10px;
+    transform: scale(1.1);
+}
+  
+  /* ADD THE EFFECTS BELOW BUT MAKE SURE TO LABEL!!!! IT   */
+
+  /* FONTS SETTINGS */
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Additional CSS styles */
+  .product-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 50px; 
+    margin: 0 auto;
+  }
+  
+  .product-image {
+    position: relative;
+    width: calc(33.33% - 20px);
+    height: 250px;
+    border: 3px solid #363636;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: transform 0.3s ease, opacity 0.5s ease; 
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.973);
+    
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 80%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.product-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-image:hover::before {
+    opacity: 1;
+}
+
+  
+  
+  .product-name {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #000000;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+  
+  .modal-buttons {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .modal-buttons button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .cart-panel {
+    max-width: 600px;
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.cart-item-info {
+    color: #0c0c0c;
+}
+
+.cart-item-remove {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    color: #ff4d4d;
+    cursor: pointer;
+}
+
+.empty-cart-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+.checkout-section {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.total-price {
+  font-weight: bold;
+}
+
+.checkout-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.video-container {
+  margin: 0 auto;
+  max-width: 800px; 
+  border: 2px solid #fff; 
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+
+
+video {
+  width: 100%;
+  height: auto;
+}
